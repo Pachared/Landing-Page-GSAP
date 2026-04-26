@@ -2,7 +2,12 @@
 
 import { useRef } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { initGSAP, gsap, useIsomorphicLayoutEffect } from "@/lib/gsap";
+import {
+  createGSAPMatchMedia,
+  gsap,
+  gsapMediaQueries,
+  useIsomorphicLayoutEffect
+} from "@/lib/gsap";
 
 const projects = [
   {
@@ -28,11 +33,9 @@ export function Showcase() {
   useIsomorphicLayoutEffect(() => {
     if (!root.current) return;
 
-    initGSAP();
-
-    const mm = gsap.matchMedia();
+    const mm = createGSAPMatchMedia();
     const ctx = gsap.context(() => {
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
+      mm.add(gsapMediaQueries.motionSafe, () => {
         gsap.from(".showcase-copy", {
           y: 34,
           opacity: 0,
@@ -65,6 +68,13 @@ export function Showcase() {
               scrub: 1.4
             }
           });
+        });
+      });
+
+      mm.add(gsapMediaQueries.reduceMotion, () => {
+        gsap.set(".showcase-copy, .project-image", {
+          clearProps: "all",
+          opacity: 1
         });
       });
     }, root);
