@@ -8,9 +8,7 @@ export function CTA() {
   const root = useRef<HTMLElement>(null);
 
   useIsomorphicLayoutEffect(() => {
-    if (!root.current) {
-      return;
-    }
+    if (!root.current) return;
 
     initGSAP();
 
@@ -18,10 +16,7 @@ export function CTA() {
     const ctx = gsap.context(() => {
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         const reveal = gsap.timeline({
-          scrollTrigger: {
-            trigger: root.current,
-            start: "top 72%"
-          }
+          scrollTrigger: { trigger: root.current, start: "top 72%" }
         });
 
         reveal
@@ -71,30 +66,25 @@ export function CTA() {
 
           <div className="relative grid gap-10 xl:grid-cols-[1fr_0.8fr] xl:items-end">
             <div>
-              <span className="section-kicker cta-content">Premium CTA</span>
-              <h2 className="cta-content mt-8 font-display text-4xl font-semibold leading-[0.95] tracking-[-0.06em] text-white sm:text-5xl lg:text-6xl">
-                Make the next launch feel
-                <span className="text-gradient"> inevitable.</span>
+              <span className="section-kicker cta-content">เริ่มต้นโปรเจกต์</span>
+              <h2 className="cta-content mt-8 font-display text-4xl font-semibold leading-[1.05] tracking-[-0.055em] text-white sm:text-5xl lg:text-6xl">
+                เล่าให้เราฟังว่า
+                <span className="text-gradient"> คุณอยากให้พื้นที่รู้สึกอย่างไร</span>
               </h2>
               <p className="cta-content mt-6 max-w-2xl text-base leading-8 text-white/[0.68] sm:text-lg">
-                Astra One turns launch-day complexity into a luxury-grade experience for your
-                team and your audience. The result is sharper presence, faster decisions, and a
-                first impression that actually lasts.
+                ไม่ว่าจะเป็นบ้านหลังใหม่ พื้นที่ทำงาน คาเฟ่ หรืออาคารขนาดเล็ก เราพร้อมเริ่มจากบทสนทนาแรก เพื่อค่อย ๆ แปลความต้องการให้กลายเป็นพื้นที่ที่มีจังหวะและเหตุผลของตัวเอง
               </p>
             </div>
 
             <div className="cta-content rounded-[2rem] border border-white/10 bg-white/[0.04] p-6 backdrop-blur-xl">
-              <p className="text-[0.68rem] uppercase tracking-[0.22em] text-white/[0.42]">
-                Early access
-              </p>
+              <p className="text-[0.68rem] tracking-[0.22em] text-white/[0.42]">นัดพูดคุยเบื้องต้น</p>
               <p className="mt-5 text-base leading-8 text-white/[0.64]">
-                Secure a private walkthrough, review the narrative system, and adapt the launch
-                flow to your own product or brand campaign.
+                ส่งรายละเอียดพื้นที่ งบประมาณโดยประมาณ และบรรยากาศที่คุณชอบ ทีมออกแบบจะช่วยจัดลำดับแนวคิดและเสนอทิศทางที่เหมาะกับโปรเจกต์ของคุณ
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-                <ActionButton href="#">Book A Guided Demo</ActionButton>
-                <ActionButton href="#" variant="secondary">
-                  Download Launch Deck
+                <ActionButton href="mailto:hello@ruenstudio.co">ติดต่อทีมออกแบบ</ActionButton>
+                <ActionButton href="#showcase" variant="secondary">
+                  ดูผลงานก่อนหน้า
                 </ActionButton>
               </div>
             </div>
