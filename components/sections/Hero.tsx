@@ -29,8 +29,8 @@ export function Hero() {
           .from(".hero-copy", { y: 24, opacity: 0, duration: 1.1 }, "-=0.72")
           .from(".hero-action", { y: 20, opacity: 0, duration: 0.85, stagger: 0.14 }, "-=0.62")
           .from(".hero-stat", { y: 18, opacity: 0, duration: 0.85, stagger: 0.16 }, "-=0.38")
-          .from(".hero-visual", { scale: 0.98, y: 32, opacity: 0, duration: 1.25 }, "-=1")
-          .from(".hero-float", { y: 24, opacity: 0, duration: 1, stagger: 0.16 }, "-=0.78");
+          .from(".hero-image", { scale: 1.04, y: 34, opacity: 0, duration: 1.45 }, "-=1")
+          .from(".hero-float", { y: 24, opacity: 0, duration: 1, stagger: 0.16 }, "-=0.82");
 
         gsap.to(".hero-orb-a", { yPercent: -6, xPercent: 4, repeat: -1, yoyo: true, duration: 14, ease: "sine.inOut" });
         gsap.to(".hero-orb-b", { yPercent: 5, xPercent: -4, repeat: -1, yoyo: true, duration: 16, ease: "sine.inOut" });
@@ -102,46 +102,20 @@ export function Hero() {
         </div>
 
         <div className="hero-visual-stack relative mx-auto w-full max-w-[32rem]">
-          <div className="hero-visual glass-panel relative overflow-hidden rounded-[2.2rem] border-white/[0.10] p-5">
-            <div className="noise-overlay" />
-            <div className="absolute inset-x-12 top-8 h-28 rounded-full bg-accent/[0.10] blur-[100px]" />
-            <div className="relative min-h-[31rem] rounded-[1.7rem] border border-white/[0.10] bg-[linear-gradient(180deg,rgba(255,255,255,0.055),rgba(255,255,255,0.012))] p-6">
-              <div className="flex items-center justify-between text-[0.68rem] tracking-[0.22em] text-white/[0.40]">
-                <span>SITE CONCEPT</span>
-                <span>2026</span>
-              </div>
-
-              <div className="mt-12 grid min-h-[20rem] gap-5">
-                <div className="self-start rounded-[1.2rem] border border-white/[0.08] bg-white/[0.025] p-5">
-                  <p className="text-xs tracking-[0.24em] text-white/[0.42]">แนวคิดหลัก</p>
-                  <p className="mt-6 font-display text-3xl font-medium tracking-[-0.05em] text-white">สงบ เรียบ ลึก</p>
-                  <p className="mt-4 max-w-sm text-sm font-light leading-7 text-white/[0.56]">
-                    พื้นที่ที่ลดความวุ่นวาย เหลือไว้เฉพาะสิ่งจำเป็น และให้แสงธรรมชาติเป็นส่วนหนึ่งของงานออกแบบ
-                  </p>
-                </div>
-
-                <div className="relative overflow-hidden rounded-[1.25rem] border border-white/[0.08] bg-background/[0.50] p-5">
-                  <div className="absolute inset-x-[18%] top-[18%] h-[42%] border border-white/10 bg-white/[0.03]" />
-                  <div className="absolute bottom-[16%] left-[16%] h-[32%] w-[32%] border border-accent/[0.22] bg-accent/[0.04]" />
-                  <div className="absolute right-[16%] top-[22%] h-[46%] w-[24%] border border-white/10 bg-white/[0.035]" />
-                  <div className="relative flex h-44 items-end justify-between opacity-70">
-                    {[58, 74, 92, 82, 96, 71].map((height) => (
-                      <span key={height} className="w-[13%] rounded-t-full bg-[linear-gradient(180deg,rgba(226,221,210,0.76),rgba(184,169,142,0.24))]" style={{ height: `${height}%` }} />
-                    ))}
-                  </div>
-                </div>
-
-                <div className="grid gap-4 sm:grid-cols-3">
-                  {["แสง", "วัสดุ", "สัดส่วน"].map((label, index) => (
-                    <div key={label} className="border-t border-white/[0.08] pt-4">
-                      <p className="text-[0.65rem] tracking-[0.22em] text-white/36">0{index + 1}</p>
-                      <p className="mt-5 text-sm font-light text-white/76">{label}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+          <figure className="hero-image glass-panel relative aspect-[4/5] overflow-hidden rounded-[2.4rem] border-white/[0.10]">
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=82"
+              alt="บ้านสไตล์มินิมอลที่ใช้แสงธรรมชาติและเส้นสายเรียบง่าย"
+              className="h-full w-full object-cover opacity-88 saturate-[0.82]"
+            />
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,6,0.05),rgba(8,8,6,0.52))]" />
+            <figcaption className="absolute inset-x-6 bottom-6 flex items-end justify-between gap-6 border-t border-white/15 pt-5 text-white/70">
+              <span className="max-w-[13rem] text-sm font-light leading-6">
+                แสง เงา และระยะว่างถูกใช้เป็นวัสดุหนึ่งของงานออกแบบ
+              </span>
+              <span className="text-[0.68rem] tracking-[0.22em] text-white/45">RESIDENTIAL</span>
+            </figcaption>
+          </figure>
 
           <div className="hero-float glass-panel absolute -left-5 top-[16%] rounded-[1.4rem] px-4 py-3">
             <p className="text-[0.65rem] tracking-[0.22em] text-white/[0.42]">MOOD</p>
