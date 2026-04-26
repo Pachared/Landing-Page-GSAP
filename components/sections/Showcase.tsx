@@ -99,51 +99,51 @@ export function Showcase() {
             </p>
           </div>
 
-          <figure className="project-image relative aspect-[16/10] overflow-hidden rounded-[2.4rem] border border-white/[0.10]">
+          <figure className="project-image group relative aspect-[16/10] cursor-default overflow-hidden rounded-[2.4rem] border border-white/[0.10]">
             <img
               src={projects[0].image}
               alt={projects[0].title}
-              className="h-full w-full object-cover opacity-90 saturate-[0.82]"
+              className="h-full w-full object-cover opacity-90 saturate-[0.82] transition duration-[1600ms] ease-out group-hover:scale-[1.045] group-hover:opacity-100 group-hover:saturate-[0.92]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,6,0.02),rgba(8,8,6,0.55))]" />
-            <figcaption className="absolute inset-x-8 bottom-7 flex items-end justify-between gap-6 border-t border-white/15 pt-5 text-white/72">
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,6,0.02),rgba(8,8,6,0.55))] transition duration-[1200ms] group-hover:bg-[linear-gradient(180deg,rgba(8,8,6,0),rgba(8,8,6,0.48))]" />
+            <figcaption className="absolute inset-x-8 bottom-7 flex items-end justify-between gap-6 border-t border-white/15 pt-5 text-white/72 transition duration-700 group-hover:border-white/25 group-hover:text-white/84">
               <span className="font-display text-2xl font-light tracking-[-0.04em]">{projects[0].title}</span>
-              <span className="text-[0.68rem] tracking-[0.22em] text-white/45">{projects[0].type}</span>
+              <span className="text-[0.68rem] tracking-[0.22em] text-white/45 transition duration-700 group-hover:text-white/58">{projects[0].type}</span>
             </figcaption>
           </figure>
         </div>
 
         <div className="mt-8 grid gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start">
-          <figure data-parallax="-6" className="project-image relative aspect-[4/5] overflow-hidden rounded-[2rem] border border-white/[0.10]">
+          <figure data-parallax="-6" className="project-image group relative aspect-[4/5] cursor-default overflow-hidden rounded-[2rem] border border-white/[0.10]">
             <img
               src={projects[1].image}
               alt={projects[1].title}
-              className="h-full w-full object-cover opacity-88 saturate-[0.78]"
+              className="h-full w-full object-cover opacity-88 saturate-[0.78] transition duration-[1600ms] ease-out group-hover:scale-[1.045] group-hover:opacity-100 group-hover:saturate-[0.9]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,6,0.02),rgba(8,8,6,0.46))]" />
-            <figcaption className="absolute inset-x-6 bottom-6 flex items-end justify-between gap-5 border-t border-white/15 pt-5 text-white/70">
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,6,0.02),rgba(8,8,6,0.46))] transition duration-[1200ms] group-hover:bg-[linear-gradient(180deg,rgba(8,8,6,0),rgba(8,8,6,0.42))]" />
+            <figcaption className="absolute inset-x-6 bottom-6 flex items-end justify-between gap-5 border-t border-white/15 pt-5 text-white/70 transition duration-700 group-hover:border-white/25 group-hover:text-white/82">
               <span className="font-display text-xl font-light tracking-[-0.04em]">{projects[1].title}</span>
-              <span className="text-[0.64rem] tracking-[0.20em] text-white/42">{projects[1].type}</span>
+              <span className="text-[0.64rem] tracking-[0.20em] text-white/42 transition duration-700 group-hover:text-white/56">{projects[1].type}</span>
             </figcaption>
           </figure>
 
           <div className="grid gap-8">
-            <figure data-parallax="8" className="project-image relative aspect-[16/9] overflow-hidden rounded-[2rem] border border-white/[0.10]">
+            <figure data-parallax="8" className="project-image group relative aspect-[16/9] cursor-default overflow-hidden rounded-[2rem] border border-white/[0.10]">
               <img
                 src={projects[2].image}
                 alt={projects[2].title}
-                className="h-full w-full object-cover opacity-86 saturate-[0.72]"
+                className="h-full w-full object-cover opacity-86 saturate-[0.72] transition duration-[1600ms] ease-out group-hover:scale-[1.045] group-hover:opacity-100 group-hover:saturate-[0.88]"
               />
-              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,6,0.02),rgba(8,8,6,0.48))]" />
-              <figcaption className="absolute inset-x-6 bottom-6 flex items-end justify-between gap-5 border-t border-white/15 pt-5 text-white/70">
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,6,0.02),rgba(8,8,6,0.48))] transition duration-[1200ms] group-hover:bg-[linear-gradient(180deg,rgba(8,8,6,0),rgba(8,8,6,0.42))]" />
+              <figcaption className="absolute inset-x-6 bottom-6 flex items-end justify-between gap-5 border-t border-white/15 pt-5 text-white/70 transition duration-700 group-hover:border-white/25 group-hover:text-white/82">
                 <span className="font-display text-xl font-light tracking-[-0.04em]">{projects[2].title}</span>
-                <span className="text-[0.64rem] tracking-[0.20em] text-white/42">{projects[2].type}</span>
+                <span className="text-[0.64rem] tracking-[0.20em] text-white/42 transition duration-700 group-hover:text-white/56">{projects[2].type}</span>
               </figcaption>
             </figure>
 
             <div className="showcase-copy grid gap-5 sm:grid-cols-3">
               {["แสง", "ช่องว่าง", "วัสดุ"].map((item, index) => (
-                <div key={item} className="border-t border-white/[0.10] pt-5">
+                <div key={item} className="border-t border-white/[0.10] pt-5 transition duration-500 hover:border-white/[0.22]">
                   <p className="text-[0.66rem] tracking-[0.22em] text-white/38">0{index + 1}</p>
                   <p className="mt-5 text-base font-light text-white/70">{item}</p>
                 </div>
