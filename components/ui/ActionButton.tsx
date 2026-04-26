@@ -10,9 +10,9 @@ type ActionButtonProps = {
 
 const variantStyles = {
   primary:
-    "border-white/10 bg-[linear-gradient(135deg,rgba(255,255,255,0.16),rgba(152,181,255,0.18))] text-white shadow-[0_20px_80px_rgba(98,128,255,0.24)]",
+    "border-white/10 bg-white/[0.06] text-white shadow-none",
   secondary:
-    "border-white/[0.14] bg-white/[0.03] text-white/[0.88] backdrop-blur-xl"
+    "border-white/[0.12] bg-transparent text-white/[0.72]"
 };
 
 export function ActionButton({
@@ -24,10 +24,10 @@ export function ActionButton({
   return (
     <Link
       href={href}
-      className={`group inline-flex items-center gap-3 rounded-full border px-5 py-3 text-sm font-semibold tracking-[0.12em] uppercase transition-all duration-500 hover:-translate-y-0.5 hover:border-white/20 hover:text-white ${variantStyles[variant]} ${className ?? ""}`}
+      className={`group inline-flex items-center gap-2 rounded-full border px-6 py-3 text-sm font-medium tracking-[0.08em] transition-all duration-500 hover:-translate-y-0.5 hover:text-white ${variantStyles[variant]} ${className ?? ""}`}
     >
       <span>{children}</span>
-      <span className="h-2 w-2 rounded-full bg-current opacity-80 transition-transform duration-500 group-hover:translate-x-1" />
+      <span className="h-1.5 w-1.5 rounded-full bg-current opacity-60 transition-transform duration-500 group-hover:translate-x-1" />
     </Link>
   );
 }
