@@ -2,7 +2,12 @@
 
 import { useRef } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { initGSAP, gsap, useIsomorphicLayoutEffect } from "@/lib/gsap";
+import {
+  createGSAPMatchMedia,
+  gsap,
+  gsapMediaQueries,
+  useIsomorphicLayoutEffect
+} from "@/lib/gsap";
 
 const principles = [
   {
@@ -31,11 +36,9 @@ export function BrandIntro() {
   useIsomorphicLayoutEffect(() => {
     if (!root.current) return;
 
-    initGSAP();
-
-    const mm = gsap.matchMedia();
+    const mm = createGSAPMatchMedia();
     const ctx = gsap.context(() => {
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
+      mm.add(gsapMediaQueries.motionSafe, () => {
         const timeline = gsap.timeline({
           scrollTrigger: { trigger: root.current, start: "top 72%" }
         });
@@ -45,6 +48,13 @@ export function BrandIntro() {
           .from(".intro-image", { y: 46, opacity: 0, scale: 1.03, duration: 1.15, ease: "power2.out" }, "-=0.55")
           .from(".intro-panel", { y: 30, opacity: 0, duration: 0.95, stagger: 0.12, ease: "power2.out" }, "-=0.55")
           .from(".intro-metric", { y: 22, opacity: 0, duration: 0.9, stagger: 0.1, ease: "power2.out" }, "-=0.45");
+      });
+
+      mm.add(gsapMediaQueries.reduceMotion, () => {
+        gsap.set(".intro-heading, .intro-image, .intro-panel, .intro-metric", {
+          clearProps: "all",
+          opacity: 1
+        });
       });
     }, root);
 
