@@ -76,14 +76,16 @@ export function BrandIntro() {
             <img
               src="https://images.unsplash.com/photo-1600573472550-8090b5e0745e?auto=format&fit=crop&w=1400&q=82"
               alt="พื้นผิววัสดุและแสงธรรมชาติในงานสถาปัตยกรรม"
-              className="h-full w-full object-cover opacity-88 saturate-[0.76] transition duration-[1600ms] ease-out group-hover:scale-[1.035] group-hover:opacity-100"
+              decoding="async"
+              loading="lazy"
+              className="h-full w-full object-cover opacity-88 saturate-[0.76] transition duration-[1600ms] ease-out group-hover:scale-[1.035] group-hover:opacity-100 group-hover:saturate-[0.86]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,6,0.03),rgba(8,8,6,0.50))]" />
-            <figcaption className="absolute inset-x-8 bottom-7 flex items-end justify-between gap-6 border-t border-white/15 pt-5 text-white/70">
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,6,0.03),rgba(8,8,6,0.50))] transition duration-[1200ms] group-hover:bg-[linear-gradient(180deg,rgba(8,8,6,0.01),rgba(8,8,6,0.44))]" />
+            <figcaption className="absolute inset-x-8 bottom-7 flex items-end justify-between gap-6 border-t border-white/15 pt-5 text-white/70 transition duration-700 group-hover:border-white/25 group-hover:text-white/82">
               <span className="max-w-sm text-sm font-light leading-6">
                 เราเริ่มจากการมองเห็นสิ่งเล็ก ๆ: แสงที่ตกบนผิววัสดุ ระยะที่พอดี และความเงียบระหว่างองค์ประกอบ
               </span>
-              <span className="text-[0.68rem] tracking-[0.22em] text-white/45">MATERIAL / LIGHT</span>
+              <span className="text-[0.68rem] tracking-[0.22em] text-white/45 transition duration-700 group-hover:text-white/58">MATERIAL / LIGHT</span>
             </figcaption>
           </figure>
 
