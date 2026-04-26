@@ -2,7 +2,12 @@
 
 import { useRef } from "react";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { initGSAP, gsap, useIsomorphicLayoutEffect } from "@/lib/gsap";
+import {
+  createGSAPMatchMedia,
+  gsap,
+  gsapMediaQueries,
+  useIsomorphicLayoutEffect
+} from "@/lib/gsap";
 
 const steps = [
   {
@@ -42,11 +47,9 @@ export function StoryScroll() {
   useIsomorphicLayoutEffect(() => {
     if (!root.current || !wrapper.current || !stage.current) return;
 
-    initGSAP();
-
-    const mm = gsap.matchMedia();
+    const mm = createGSAPMatchMedia();
     const ctx = gsap.context(() => {
-      mm.add("(prefers-reduced-motion: no-preference) and (min-width: 1024px)", () => {
+      mm.add(`${gsapMediaQueries.motionSafe} and ${gsapMediaQueries.desktop}`, () => {
         const storySteps = gsap.utils.toArray<HTMLElement>(".story-step");
         const storyLayers = gsap.utils.toArray<HTMLElement>(".story-layer");
 
@@ -64,7 +67,8 @@ export function StoryScroll() {
             end: "+=2600",
             scrub: 1.2,
             pin: stage.current,
-            anticipatePin: 1
+            anticipatePin: 1,
+            invalidateOnRefresh: true
           }
         });
 
@@ -81,7 +85,7 @@ export function StoryScroll() {
         });
       });
 
-      mm.add("(prefers-reduced-motion: no-preference) and (max-width: 1023px)", () => {
+      mm.add(`${gsapMediaQueries.motionSafe} and ${gsapMediaQueries.mobile}`, () => {
         gsap.from(".story-mobile-card", {
           y: 34,
           opacity: 0,
@@ -89,6 +93,13 @@ export function StoryScroll() {
           stagger: 0.14,
           ease: "power2.out",
           scrollTrigger: { trigger: root.current, start: "top 72%" }
+        });
+      });
+
+      mm.add(gsapMediaQueries.reduceMotion, () => {
+        gsap.set(".story-step, .story-layer, .story-mobile-card, .story-progress", {
+          clearProps: "all",
+          opacity: 1
         });
       });
     }, root);
