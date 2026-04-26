@@ -103,6 +103,9 @@ export function Showcase() {
             <img
               src={projects[0].image}
               alt={projects[0].title}
+              decoding="async"
+              loading="eager"
+              fetchPriority="high"
               className="h-full w-full object-cover opacity-90 saturate-[0.82] transition duration-[1600ms] ease-out group-hover:scale-[1.045] group-hover:opacity-100 group-hover:saturate-[0.92]"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,6,0.02),rgba(8,8,6,0.55))] transition duration-[1200ms] group-hover:bg-[linear-gradient(180deg,rgba(8,8,6,0),rgba(8,8,6,0.48))]" />
@@ -118,6 +121,8 @@ export function Showcase() {
             <img
               src={projects[1].image}
               alt={projects[1].title}
+              decoding="async"
+              loading="lazy"
               className="h-full w-full object-cover opacity-88 saturate-[0.78] transition duration-[1600ms] ease-out group-hover:scale-[1.045] group-hover:opacity-100 group-hover:saturate-[0.9]"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,6,0.02),rgba(8,8,6,0.46))] transition duration-[1200ms] group-hover:bg-[linear-gradient(180deg,rgba(8,8,6,0),rgba(8,8,6,0.42))]" />
@@ -132,6 +137,8 @@ export function Showcase() {
               <img
                 src={projects[2].image}
                 alt={projects[2].title}
+                decoding="async"
+                loading="lazy"
                 className="h-full w-full object-cover opacity-86 saturate-[0.72] transition duration-[1600ms] ease-out group-hover:scale-[1.045] group-hover:opacity-100 group-hover:saturate-[0.88]"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,6,0.02),rgba(8,8,6,0.48))] transition duration-[1200ms] group-hover:bg-[linear-gradient(180deg,rgba(8,8,6,0),rgba(8,8,6,0.42))]" />
