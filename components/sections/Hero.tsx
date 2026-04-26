@@ -2,7 +2,12 @@
 
 import { useRef } from "react";
 import { ActionButton } from "@/components/ui/ActionButton";
-import { initGSAP, gsap, useIsomorphicLayoutEffect } from "@/lib/gsap";
+import {
+  createGSAPMatchMedia,
+  gsap,
+  gsapMediaQueries,
+  useIsomorphicLayoutEffect
+} from "@/lib/gsap";
 
 const heroLines = ["พื้นที่ที่สงบ", "และอยู่กับชีวิตจริง"];
 const heroStats = [
@@ -17,11 +22,9 @@ export function Hero() {
   useIsomorphicLayoutEffect(() => {
     if (!root.current) return;
 
-    initGSAP();
-
-    const mm = gsap.matchMedia();
+    const mm = createGSAPMatchMedia();
     const ctx = gsap.context(() => {
-      mm.add("(prefers-reduced-motion: no-preference)", () => {
+      mm.add(gsapMediaQueries.motionSafe, () => {
         const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
 
         tl.from(".hero-kicker", { y: 18, opacity: 0, duration: 0.9 })
@@ -43,6 +46,13 @@ export function Hero() {
           yPercent: 9,
           ease: "none",
           scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: 1.8 }
+        });
+      });
+
+      mm.add(gsapMediaQueries.reduceMotion, () => {
+        gsap.set(".hero-kicker, .hero-line-inner, .hero-copy, .hero-action, .hero-stat, .hero-image, .hero-float", {
+          clearProps: "all",
+          opacity: 1
         });
       });
     }, root);
