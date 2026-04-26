@@ -3,9 +3,9 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Astra One | Cinematic Premium Launch Experience",
+  title: "เรือนสถาปัตย์ | สตูดิโอออกแบบสถาปัตยกรรมและพื้นที่อยู่อาศัย",
   description:
-    "A cinematic high-end landing page crafted with Next.js, Tailwind CSS, GSAP, and ScrollTrigger."
+    "เว็บไซต์สตูดิโอสถาปัตยกรรมภาษาไทย สไตล์มินิมอลพรีเมียม สร้างด้วย Next.js, Tailwind CSS, GSAP และ ScrollTrigger."
 };
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="th">
       <body>{children}</body>
     </html>
   );
