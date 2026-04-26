@@ -39,11 +39,11 @@ export function Features() {
     const ctx = gsap.context(() => {
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         gsap.from(".feature-card", {
-          y: 44,
+          y: 36,
           opacity: 0,
-          duration: 0.8,
-          stagger: 0.12,
-          ease: "power3.out",
+          duration: 1,
+          stagger: 0.14,
+          ease: "power2.out",
           scrollTrigger: { trigger: root.current, start: "top 68%" }
         });
       });
@@ -58,29 +58,33 @@ export function Features() {
   return (
     <section id="features" ref={root} className="section-space">
       <div className="section-shell">
-        <SectionHeading
-          kicker="บริการ"
-          title={
-            <>
-              ดูแลตั้งแต่แนวคิด
-              <br />
-              <span className="text-gradient">จนถึงภาษาของพื้นที่จริง</span>
-            </>
-          }
-          description="เราออกแบบโดยมองพื้นที่ทั้งหมดร่วมกัน เพื่อให้สถาปัตยกรรม ภายใน แสง วัสดุ และการใช้งานเดินไปในจังหวะเดียวกัน"
-        />
+        <div className="grid gap-14 xl:grid-cols-[0.78fr_1.22fr] xl:items-start">
+          <SectionHeading
+            kicker="บริการ"
+            title={
+              <>
+                ดูแลตั้งแต่แนวคิด
+                <br />
+                <span className="text-gradient">จนถึงภาษาของพื้นที่จริง</span>
+              </>
+            }
+            description="เราออกแบบโดยมองพื้นที่ทั้งหมดร่วมกัน เพื่อให้สถาปัตยกรรม ภายใน แสง วัสดุ และการใช้งานเดินไปในจังหวะเดียวกัน"
+          />
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {features.map((feature, index) => (
-            <article key={feature.title} className="feature-card glass-panel group relative overflow-hidden rounded-[1.8rem] p-6">
-              <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-60" />
-              <div className="absolute right-0 top-0 h-36 w-36 rounded-full bg-accent/10 blur-[90px] transition-opacity duration-500 group-hover:opacity-80" />
-              <p className="text-[0.72rem] tracking-[0.24em] text-white/40">0{index + 1}</p>
-              <h3 className="mt-8 font-display text-2xl font-semibold tracking-[-0.04em] text-white">{feature.title}</h3>
-              <p className="mt-5 text-base leading-8 text-white/[0.64]">{feature.copy}</p>
-              <p className="mt-8 border-t border-white/[0.08] pt-5 text-sm leading-7 text-white/[0.48]">{feature.detail}</p>
-            </article>
-          ))}
+          <div className="divide-y divide-white/[0.10] border-y border-white/[0.10]">
+            {features.map((feature, index) => (
+              <article key={feature.title} className="feature-card group grid gap-6 py-9 md:grid-cols-[0.18fr_0.42fr_0.40fr] md:items-start">
+                <p className="text-[0.72rem] tracking-[0.28em] text-white/36">0{index + 1}</p>
+                <div>
+                  <h3 className="font-display text-2xl font-light tracking-[-0.04em] text-white transition-colors duration-500 group-hover:text-accent">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-6 text-sm font-light leading-7 text-white/[0.46]">{feature.detail}</p>
+                </div>
+                <p className="max-w-xl text-base font-light leading-9 text-white/[0.62]">{feature.copy}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
