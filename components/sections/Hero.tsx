@@ -102,18 +102,20 @@ export function Hero() {
         </div>
 
         <div className="hero-visual-stack relative mx-auto w-full max-w-[32rem]">
-          <figure className="hero-image glass-panel relative aspect-[4/5] overflow-hidden rounded-[2.4rem] border-white/[0.10]">
+          <figure className="hero-image group glass-panel relative aspect-[4/5] overflow-hidden rounded-[2.4rem] border-white/[0.10]">
             <img
               src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=82"
               alt="บ้านสไตล์มินิมอลที่ใช้แสงธรรมชาติและเส้นสายเรียบง่าย"
-              className="h-full w-full object-cover opacity-88 saturate-[0.82]"
+              decoding="async"
+              fetchPriority="high"
+              className="h-full w-full object-cover opacity-88 saturate-[0.82] transition duration-[1800ms] ease-out group-hover:scale-[1.035] group-hover:opacity-100 group-hover:saturate-[0.9]"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,6,0.05),rgba(8,8,6,0.52))]" />
-            <figcaption className="absolute inset-x-6 bottom-6 flex items-end justify-between gap-6 border-t border-white/15 pt-5 text-white/70">
+            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,8,6,0.05),rgba(8,8,6,0.52))] transition duration-[1400ms] group-hover:bg-[linear-gradient(180deg,rgba(8,8,6,0.02),rgba(8,8,6,0.46))]" />
+            <figcaption className="absolute inset-x-6 bottom-6 flex items-end justify-between gap-6 border-t border-white/15 pt-5 text-white/70 transition duration-700 group-hover:border-white/25 group-hover:text-white/84">
               <span className="max-w-[13rem] text-sm font-light leading-6">
                 แสง เงา และระยะว่างถูกใช้เป็นวัสดุหนึ่งของงานออกแบบ
               </span>
-              <span className="text-[0.68rem] tracking-[0.22em] text-white/45">RESIDENTIAL</span>
+              <span className="text-[0.68rem] tracking-[0.22em] text-white/45 transition duration-700 group-hover:text-white/60">RESIDENTIAL</span>
             </figcaption>
           </figure>
 
